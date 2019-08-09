@@ -1,6 +1,6 @@
 set -e
 
-shepherdServerXmlLocation=https://raw.githubusercontent.com/owasp/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleServer.xml
+shepherdServerXmlLocation=https://rawcontent.com/owasp/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleServer.xml
 shepherdWebXmlLocation=https://raw.githubusercontent.com/owasp/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleWeb.xml
 shepherdManualPackLocation=https://github.com/OWASP/SecurityShepherd/releases/download/v3.1/owaspSecurityShepherd_v3.1_ManualPack.zip
 if [[ $EUID -ne 0 ]]; then
@@ -11,12 +11,14 @@ else
   systemctl disable systemd-networkd-wait-online.service
   systemctl mask systemd-networkd-wait-online.service
 	# Install Pre-Requisite Stuff
-	sudo add-apt-repository universe #Tomcat8 is here
+	sudo add-apt-repository ppa:linuxuprising/java -y
+	sudo add-apt-repository universe -y #Tomcat8 is here
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
 	echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list #mongodb is here
-	sudo apt-get update -y
-	sudo apt-get upgrade -y
-	sudo apt-get install -y  tomcat8 tomcat8-admin mysql-server-5.7 mongodb-org unzip
+	sudo apt update -y
+	sudo apt upgrade -y
+	sudo apt install -y oracle-java11-set-default-local
+	sudo apt install -y  tomcat8 tomcat8-admin mysql-server-5.7 mongodb-org unzip
 
 	#Configuring Tomcat to Run the way we want (Oracle Java, HTTPs, Port 80 redirect to 443
 	echo "Configuring Tomcat"
