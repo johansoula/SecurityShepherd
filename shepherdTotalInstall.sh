@@ -79,6 +79,7 @@ else
         echo "Configuring MongoDB"
   	sudo service mongod start
   	systemctl enable mongod.service
+	sleep 15
         mongo $PACKDIR/manualPack/mongoSchema.js
 fi
 
