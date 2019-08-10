@@ -1,0 +1,7 @@
+#cloud-config
+package_upgrade: true
+runcmd:
+  - cd "/var/tmp"
+  - wget https://raw.githubusercontent.com/johansoula/SecurityShepherd/master/shepherdTotalInstall.sh
+  - bash shepherdTotalInstall.sh
+  
