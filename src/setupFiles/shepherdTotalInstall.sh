@@ -94,10 +94,10 @@ else
 
 	cd /var/lib/tomcat8/webapps/ROOT
 	wget -O skin.zip $shepherdSkinLocation
-	unzip skin.zip
+	unzip -o skin.zip
 	SKIN_FILES="css/lessonCss/theCss.css css/theCss.css css/images/shepherdAndSheep.jpg index.jsp setup.jsp register.jsp scoreboard.jsp login.jsp"
 	chown root:tomcat8 $SKIN_FILES
-	chmod 110 SKIN_FILES
+	chmod 440 $SKIN_FILES
 fi
 
 echo "MySQL: localhost:3306 user: root pass: CowSaysMoo"
