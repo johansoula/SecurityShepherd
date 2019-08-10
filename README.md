@@ -16,22 +16,21 @@ Next steps:
 sudo bash shepherdTotalInstall.sh
 
 ### Azure Cloud Init Setup 
-
-   #cloud-config
-   package_upgrade: true
-   runcmd:
-     - cd "/var/tmp"
-     - wget https://raw.githubusercontent.com/johansoula/SecurityShepherd/master/shepherdTotalInstall.sh
-     - bash shepherdTotalInstall.sh
-  
+```
+#cloud-config
+package_upgrade: true
+runcmd:
+ - cd "/var/tmp"
+ - wget https://raw.githubusercontent.com/johansoula/SecurityShepherd/master/shepherdTotalInstall.sh
+ - bash shepherdTotalInstall.sh
+ ``` 
 ### DB setup wizard
-
-   Hostname: localhost
-   Port: 3306
-   DB user: root
-   DB password: CowSaysMoo
-   Override Database: Fresh Database
-   Auth token: cat /var/lib/tomcat8//conf/SecurityShepherd.auth ; echo
+   Hostname: ```localhost```
+   Port: ```3306```
+   DB user: ```root```
+   DB password: ```CowSaysMoo```
+   Override Database: ```Fresh Database```
+   Auth token: ```cat /var/lib/tomcat8//conf/SecurityShepherd.auth ; echo```
 
 To login use the following credentials (you will be asked to update after login);
 
@@ -40,3 +39,4 @@ To login use the following credentials (you will be asked to update after login)
 
 
 Check README from https://github.com/OWASP/SecurityShepherd
+Reskin Wiki: https://github.com/OWASP/SecurityShepherd/wiki/How-to-Reskin-Shepherd
