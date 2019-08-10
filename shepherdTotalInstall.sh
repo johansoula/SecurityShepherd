@@ -1,4 +1,4 @@
-set -e
+#set -e
 
 shepherdServerXmlLocation=https://raw.githubusercontent.com/owasp/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleServer.xml
 shepherdWebXmlLocation=https://raw.githubusercontent.com/owasp/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleWeb.xml
