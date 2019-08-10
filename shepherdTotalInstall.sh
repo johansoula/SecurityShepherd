@@ -85,7 +85,7 @@ else
   	sudo service mongod start
   	systemctl enable mongod.service
 	sleep 15
-        mongo $PACKDIR/manualPack/mongoSchema.js
+        mongo manualPack/mongoSchema.js
 fi
 
 echo "MySQL pass: CowSaysMoo"
