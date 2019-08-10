@@ -28,12 +28,12 @@ runcmd:
  - bash shepherdTotalInstall.sh
  ``` 
 ### DB setup wizard
-   Hostname: ```localhost```
-   Port: ```3306```
-   DB user: ```root```
-   DB password: ```CowSaysMoo```
-   Override Database: ```Fresh Database```
-   Auth token: ```cat /var/lib/tomcat8//conf/SecurityShepherd.auth ; echo```
+*   Hostname: ```localhost```
+*   Port: ```3306```
+*   DB user: ```root```
+*   DB password: ```CowSaysMoo```
+*   Override Database: ```Fresh Database```
+*   Auth token: ```cat /var/lib/tomcat8//conf/SecurityShepherd.auth ; echo```
 
 To login use the following credentials (you will be asked to update after login);
 
