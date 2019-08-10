@@ -11,12 +11,15 @@ else
   systemctl disable systemd-networkd-wait-online.service
   systemctl mask systemd-networkd-wait-online.service
 	# Install Pre-Requisite Stuff
-	sudo add-apt-repository ppa:linuxuprising/java -y
 	sudo add-apt-repository universe -y #Tomcat8 is here
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
 	echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list #mongodb is here
 	sudo apt update -y
+	sudo apt install -y debconf-utils software-properties-common
+	echo "oracle-java11-installer-local  shared/accepted-oracle-license-v1-2 select true" | sudo debconf-set-selections
 	sudo apt upgrade -y
+	sudo add-apt-repository ppa:linuxuprising/java -y
+	sudo apt update -y
 	sudo apt install -y oracle-java11-installer-local
 	sudo apt install -y  tomcat8 tomcat8-admin mysql-server-5.7 mongodb-org unzip
 
