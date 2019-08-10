@@ -8,7 +8,6 @@ This fork was made to update the scripted setup to work automagically on Ubuntu 
 
 Next steps:
 - Ansible to have the same installation than the script shell installation but more "idem potent"
-- Get a valid let's encrypt certificate (done)
 - Fine tune CSS layout and logos
 
 ### Manual Setup
