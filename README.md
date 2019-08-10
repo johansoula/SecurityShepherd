@@ -8,15 +8,35 @@ This fork was made to update the scripted setup to work automagically on Ubuntu 
 
 Next steps:
 - Ansible to have the same installation than the script shell installation but more "idem potent"
+- Get a valid let's encrypt certificate
+- Fine tune CSS layout and logos
 
 ### Manual Setup
 
-sudo bash 
+sudo bash shepherdTotalInstall.sh
+
+### Azure Cloud Init Setup 
+
+   #cloud-config
+   package_upgrade: true
+   runcmd:
+     - cd "/var/tmp"
+     - wget https://raw.githubusercontent.com/johansoula/SecurityShepherd/master/shepherdTotalInstall.sh
+     - bash shepherdTotalInstall.sh
+  
+### DB setup wizard
+
+   Hostname: localhost
+   Port: 3306
+   DB user: root
+   DB password: CowSaysMoo
+   Override Database: Fresh Database
+   Auth token: cat /var/lib/tomcat8//conf/SecurityShepherd.auth ; echo
 
 To login use the following credentials (you will be asked to update after login);
 
 * username: ```admin```
 * password: ```password```
 
-  
+
 Check README from https://github.com/OWASP/SecurityShepherd
