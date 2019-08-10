@@ -2,5 +2,5 @@
 package_upgrade: true
 runcmd:
   - cd "/var/tmp"
-  - wget https://raw.githubusercontent.com/johansoula/SecurityShepherd/master/shepherdTotalInstall_bluewhitered.sh
-  - bash shepherdTotalInstall_bluewhitered.sh
+  - wget https://raw.githubusercontent.com/johansoula/SecurityShepherd/master/src/setupFiles/shepherdTotalInstall.sh
+  - bash shepherdTotalInstall.sh
