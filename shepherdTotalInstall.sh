@@ -1,6 +1,6 @@
 set -e
 
-shepherdServerXmlLocation=https://rawcontent.com/owasp/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleServer.xml
+shepherdServerXmlLocation=https://raw.githubusercontent.com/owasp/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleServer.xml
 shepherdWebXmlLocation=https://raw.githubusercontent.com/owasp/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleWeb.xml
 shepherdManualPackLocation=https://github.com/OWASP/SecurityShepherd/releases/download/v3.1/owaspSecurityShepherd_v3.1_ManualPack.zip
 if [[ $EUID -ne 0 ]]; then
@@ -22,6 +22,7 @@ else
 	sudo add-apt-repository ppa:linuxuprising/java -y
 	sudo apt update -y
 	sudo apt install -y oracle-java12-installer
+	sudo ln -s /usr/lib/jvm/java-12-oracle /usr/lib/jvm/default-java
 	sudo apt install -y  tomcat8 tomcat8-admin mysql-server-5.7 mongodb-org unzip
 
 	#Configuring Tomcat to Run the way we want (Oracle Java, HTTPs, Port 80 redirect to 443
