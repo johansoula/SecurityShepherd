@@ -7,7 +7,6 @@ The [OWASP Security Shepherd Project](http://bit.ly/owaspSecurityShepherd) is a 
 # Where can I download Security Shepherd?
 
 This fork was made to update the scripted setup to work automagically on Ubuntu 18.04 LTS .
-You must download first java jdk deb package: https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html
 
 Next steps:
 - Ansible to have the same installation than the script shell installation but more "idem potent"
