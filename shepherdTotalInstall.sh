@@ -16,11 +16,11 @@ else
 	echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list #mongodb is here
 	sudo apt update -y
 	sudo apt install -y debconf-utils software-properties-common
-	echo "oracle-java11-installer-local  shared/accepted-oracle-license-v1-2 select true" | sudo debconf-set-selections
+	echo "oracle-java12-installer shared/accepted-oracle-license-v1-2 select true" | sudo debconf-set-selections
 	sudo apt upgrade -y
 	sudo add-apt-repository ppa:linuxuprising/java -y
 	sudo apt update -y
-	sudo apt install -y oracle-java11-installer-local
+	sudo apt install -y oracle-java12-installer
 	sudo apt install -y  tomcat8 tomcat8-admin mysql-server-5.7 mongodb-org unzip
 
 	#Configuring Tomcat to Run the way we want (Oracle Java, HTTPs, Port 80 redirect to 443
