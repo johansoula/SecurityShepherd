@@ -22,7 +22,8 @@ else
 	sudo add-apt-repository ppa:linuxuprising/java -y
 	sudo apt update -y
 	sudo apt install -y oracle-java12-installer
-	sudo ln -s /usr/lib/jvm/java-12-oracle /usr/lib/jvm/default-java
+	ln -s /usr/lib/jvm/java-12-oracle /usr/lib/jvm/default-java
+	ln -s /usr/lib/jvm/default-java /usr/lib/jvm/java-11-openjdk-amd64
 	sudo apt install -y  tomcat8 tomcat8-admin mysql-server-5.7 mongodb-org unzip
 
 	#Configuring Tomcat to Run the way we want (Oracle Java, HTTPs, Port 80 redirect to 443
