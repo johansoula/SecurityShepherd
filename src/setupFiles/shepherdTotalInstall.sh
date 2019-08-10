@@ -3,6 +3,8 @@
 shepherdServerXmlLocation=https://raw.githubusercontent.com/johansoula/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleServer.xml
 shepherdWebXmlLocation=https://raw.githubusercontent.com/johansoula/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleWeb.xml
 shepherdManualPackLocation=https://github.com/johansoula/SecurityShepherd/raw/master/src/setupFiles/manualPack.zip
+shepherdSkinLocation=https://github.com/johansoula/SecurityShepherd/raw/master/src/setupFiles/skin.zip
+
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
@@ -89,6 +91,13 @@ else
   	systemctl enable mongod.service
 	sleep 15
         mongo manualPack/mongoSchema.js
+
+	cd /var/lib/tomcat8/webapps/ROOT
+	wget -O skin.zip $shepherdSkinLocation
+	unzip skin.zip
+	SKIN_FILES="css/lessonCss/theCss.css css/theCss.css css/images/shepherdAndSheep.jpg index.jsp setup.jsp register.jsp scoreboard.jsp login.jsp"
+	chown root:tomcat8 $SKIN_FILES
+	chmod 110 SKIN_FILES
 fi
 
 echo "MySQL: localhost:3306 user: root pass: CowSaysMoo"
