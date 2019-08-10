@@ -1,8 +1,8 @@
-set -e
+#set -e
 
 shepherdServerXmlLocation=https://raw.githubusercontent.com/owasp/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleServer.xml
 shepherdWebXmlLocation=https://raw.githubusercontent.com/owasp/SecurityShepherd/master/src/setupFiles/tomcatShepherdSampleWeb.xml
-shepherdManualPackLocation=https://github.com/OWASP/SecurityShepherd/releases/download/v3.1/owaspSecurityShepherd_v3.1_ManualPack.zip
+shepherdManualPackLocation=https://github.com/johansoula/SecurityShepherd/raw/master/src/setupFiles/manualPack.zip
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit 1
@@ -11,12 +11,20 @@ else
   systemctl disable systemd-networkd-wait-online.service
   systemctl mask systemd-networkd-wait-online.service
 	# Install Pre-Requisite Stuff
-	sudo add-apt-repository universe #Tomcat8 is here
+	sudo add-apt-repository universe -y #Tomcat8 is here
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
 	echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list #mongodb is here
-	sudo apt-get update -y
-	sudo apt-get upgrade -y
-	sudo apt-get install -y  tomcat8 tomcat8-admin mysql-server-5.7 mongodb-org unzip
+	sudo apt update -y
+	sudo apt install -y debconf-utils software-properties-common
+	echo "oracle-java12-installer shared/accepted-oracle-license-v1-2 select true" | sudo debconf-set-selections
+	echo "oracle-java12-installer shared/accepted-oracle-license-v1-2 seen true" | sudo debconf-set-selections
+	sudo apt upgrade -y
+	sudo add-apt-repository ppa:linuxuprising/java -y
+	sudo apt update -y
+	sudo apt install -y oracle-java12-installer
+	ln -s /usr/lib/jvm/java-12-oracle /usr/lib/jvm/default-java
+	ln -s /usr/lib/jvm/default-java /usr/lib/jvm/java-11-openjdk-amd64
+	sudo apt install -y  tomcat8 tomcat8-admin mysql-server-5.7 mongodb-org unzip
 
 	#Configuring Tomcat to Run the way we want (Oracle Java, HTTPs, Port 80 redirect to 443
 	echo "Configuring Tomcat"
@@ -66,6 +74,8 @@ else
 	sudo dos2unix manualPack/*.js
 	sudo chmod 775 manualPack/*.war
 	mv manualPack/ROOT.war /var/lib/tomcat8/webapps/
+	rmdir --ignore-fail-on-non-empty /usr/share/tomcat8/webapps
+	ln -s /var/lib/tomcat8/webapps  /usr/share/tomcat8/webapps
 	sudo rm -rf /var/lib/tomcat8/webapps/ROOT
 	sudo ln -s /etc/tomcat8 /usr/share/tomcat8/conf
 	sudo chown -R tomcat8:tomcat8  /usr/share/tomcat8/ /var/lib/tomcat8/webapps
@@ -77,10 +87,10 @@ else
         echo "Configuring MongoDB"
   	sudo service mongod start
   	systemctl enable mongod.service
-        mongo $PACKDIR/manualPack/mongoSchema.js
+	sleep 15
+        mongo manualPack/mongoSchema.js
 fi
 
-echo "MySQL pass: CowSaysMoo"
-echo "Installation token: "
-cat /var/lib/tomcat8//conf/SecurityShepherd.auth
+echo "MySQL: localhost:3306 user: root pass: CowSaysMoo"
+echo "Retrieve installation token:  sudo cat /var/lib/tomcat8//conf/SecurityShepherd.auth"
 echo

@@ -47,3 +47,8 @@ https://github.com/OWASP/SecurityShepherd
 
 # Reskin Wiki
 https://github.com/OWASP/SecurityShepherd/wiki/How-to-Reskin-Shepherd
+
+Prepare to compile
+```sudo apt install -y git maven  default-jdk
+mvn clean install -DskipTests
+```
