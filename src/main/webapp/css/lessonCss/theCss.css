@@ -2,7 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 13px;
-	color: #090212;
+	color: #2e3897;
 }
 
 body, th, td, input, textarea, select, option, p, div {
@@ -11,7 +11,7 @@ body, th, td, input, textarea, select, option, p, div {
 
 h1, h2, h3 {
 	font-weight: normal;
-	color: #0A000A;
+	color: #2e3897;
 }
 
 h1 {
@@ -25,7 +25,7 @@ h2 {
 }
 
 h2 a {
-	color: #0A000A;
+	color: #2e3897;
 }
 
 h3 {
@@ -38,7 +38,7 @@ p, ul, ol {
 }
 
 a {
-	color: #9B1AC8;
+	color: #2e3897;
 	word-wrap: break-word;
 }
 
@@ -48,7 +48,7 @@ b {
 
 a:hover {
 	text-decoration: none;
-	color: #E6B715;
+	color: 	#b0c4de;
 }
 
 td {
@@ -68,7 +68,7 @@ td {
 
 #header h1, #header p {
 	margin: 0;
-	color: #A878EF;
+	color: #2e3897;
 }
 
 #header h1 {
@@ -80,7 +80,7 @@ td {
 	margin-top: -10px;
 }
 #header a {
-	color: #A878EF;
+	color: #2e3897;
 	text-decoration:none;
 }
 
@@ -106,17 +106,17 @@ td {
 	background: #FFFFFF;
 	border-style:ridge;
 	border-width:5px;
-	border-color:#E42217;
+	border-color:#2e3897;
 }
 
 .errorAlert {
-	background: #E42217;
+	background: #2e3897;
 	color:#FFFFFF;
 	padding-left = 10px;
 }
 
 .successAlert {
-	background: #7B55B4;
+	background: #2e3897;
 	color:#FFFFFF;
 	padding-left = 10px;
 }
@@ -124,7 +124,7 @@ td {
 .title {
 	margin: 0;
 	padding-bottom: 5px;
-	border-bottom: 2px solid #A878EF;
+	border-bottom: 2px solid #2e3897;
 }
 
 #sidebar {

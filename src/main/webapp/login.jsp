@@ -5,20 +5,20 @@
 
 
 /**
- * This file is part of the Security Shepherd Project.
+ * This file is part of the Security Training Project.
  * 
- * The Security Shepherd project is free software: you can redistribute it and/or modify
+ * The Security Training project is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.<br/>
  * 
- * The Security Shepherd project is distributed in the hope that it will be useful,
+ * The Security Training project is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.<br/>
  * 
  * You should have received a copy of the GNU General Public License
- * along with the Security Shepherd project.  If not, see <http://www.gnu.org/licenses/>. 
+ * along with the Security Training project.  If not, see <http://www.gnu.org/licenses/>. 
  * 
  * @author Mark Denihan
  */
@@ -64,7 +64,7 @@ if(ses.getAttribute("loginFailed") != null)
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>OWASP Security Shepherd - Login</title>
+	<title>Security Training</title>
 
 	<link href="css/theCss.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="css/theResponsiveCss.css" rel="stylesheet" type="text/css" media="screen">
@@ -75,7 +75,7 @@ if(ses.getAttribute("loginFailed") != null)
 	<jsp:include page="translation-select.jsp" />
 	<!-- start header -->
 	<div id="header">
-		<h1>Security Shepherd</h1>
+		<h1>Security<br>Training</h1>
 	</div>
 	<!-- end header -->
 	<!-- start page -->

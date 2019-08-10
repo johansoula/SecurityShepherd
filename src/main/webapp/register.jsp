@@ -4,20 +4,20 @@
 	ShepherdLogManager.logEvent(request.getRemoteAddr(), request.getHeader("X-Forwarded-For"), "DEBUG: register.jsp *************************");
 
 /**
- * This file is part of the Security Shepherd Project.
+ * This file is part of the Security Training Project.
  * 
- * The Security Shepherd project is free software: you can redistribute it and/or modify
+ * The Security Training project is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.<br/>
  * 
- * The Security Shepherd project is distributed in the hope that it will be useful,
+ * The Security Training project is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.<br/>
  * 
  * You should have received a copy of the GNU General Public License
- * along with the Security Shepherd project.  If not, see <http://www.gnu.org/licenses/>. 
+ * along with the Security Training project.  If not, see <http://www.gnu.org/licenses/>. 
  * 
  * @author Mark Denihan
  */
@@ -89,7 +89,7 @@ if(ses.getAttribute("errorMessage") != null)
 <jsp:include page="translation-select.jsp" />
 <!-- start header -->
 <div id="header">
-	<h1>Security Shepherd</h1>
+	<h1>Security Training</h1>
 </div>
 <!-- end header -->
 <!-- start page -->
@@ -122,14 +122,14 @@ if(ses.getAttribute("errorMessage") != null)
 					<center><big style="color:#A878EF;">SHEPHERD DISCLAIMER</big></center>
 					<br/>
 					<br/>
-					The Security Shepherd project is for educational purposes only. 
+					The Security Training project is for educational purposes only. 
 					Do not attempt to use these techniques without authorization. 
 					If you are caught engaging in unauthorized hacking, 
 					most companies will take legal action. 
 					Claiming that you were doing security research 
 					will not protect you. 
 					<br/><br/>
-					Security Shepherd is a safe playground 
+					Security Training is a safe playground 
 					for you to improve your web application security skills
 					and only encourages white hat or ethical hacking behaviour. 
 					<br/>
@@ -143,7 +143,7 @@ if(ses.getAttribute("errorMessage") != null)
 			</form>
 		</div>
 		<div id="resultDiv"></div>
-		<div id="loadingSign" style="display: none"><p><h2 class="title">Enrolling Now</h2><p>Please wait as you are enrolled for your Security Shepherd account.</p></p></div>
+		<div id="loadingSign" style="display: none"><p><h2 class="title">Enrolling Now</h2><p>Please wait as you are enrolled for your Security Training account.</p></p></div>
 	</div>
 	<!-- end content -->
 	<!-- start sidebar -->
@@ -176,13 +176,37 @@ if(ses.getAttribute("errorMessage") != null)
 		var theEmailAgain = $("#userAddressCnf").val();
 		//Validation
 		var theError = "";
-		if (thePass != thePassAgain)
+		if (theName.length == 0 || thePass.length == 0 || thePassAgain.length == 0)
+		{
+			theError = "Please fill out all required fields marked with a '*'";
+		}
+		else if (theName.length < 5)
+		{
+			theError = "Your name must be longer than 5 characters";
+		}
+		else if (theName.length > 32)
+		{
+			theError = "Your name must be no longer than 32 characters";
+		}
+		else if (thePass != thePassAgain)
 		{
 			theError = "Passwords do not match";
 		}
 		else if (theEmail.length != 0 && theEmail != theEmailAgain)
 		{
 			theError = "Email addresses did not match";
+		}
+		else if (thePass.length < 8)
+		{
+			theError = "Your password must be at least 8 characters long";
+		}
+		else if (thePass.length > 512)
+		{
+			theError = "Your password must be no longer than 512 characters long";
+		}
+		else if (theEmail.length > 128)
+		{
+			theError = "Your email address must be no longer than 128 characters long";
 		}
 		
 		//If Valid, Sent info to servlet, if not, spit out the expected error

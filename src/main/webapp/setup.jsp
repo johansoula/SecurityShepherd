@@ -8,20 +8,20 @@
 
 
 /**
- * This file is part of the Security Shepherd Project.
+ * This file is part of the Security Training Project.
  * 
- * The Security Shepherd project is free software: you can redistribute it and/or modify
+ * The Security Training project is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.<br/>
  * 
- * The Security Shepherd project is distributed in the hope that it will be useful,
+ * The Security Training project is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.<br/>
  * 
  * You should have received a copy of the GNU General Public License
- * along with the Security Shepherd project.  If not, see <http://www.gnu.org/licenses/>. 
+ * along with the Security Training project.  If not, see <http://www.gnu.org/licenses/>. 
  * 
  * @author Mark Denihan
  */
@@ -51,7 +51,7 @@ if (Setup.isInstalled()) {
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>OWASP Security Shepherd - Login</title>
+<title>OWASP Security Training - Login</title>
 
 <link href="css/theCss.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="css/theResponsiveCss.css" rel="stylesheet" type="text/css" media="screen">
@@ -65,7 +65,7 @@ if (Setup.isInstalled()) {
 		<jsp:include page="translation-select.jsp" />
 		<!-- start header -->
 		<div id="header">
-			<h1>Security Shepherd</h1>
+			<h1>Security Training</h1>
 		</div>
 		<!-- end header -->
 		<!-- start page -->
@@ -125,8 +125,7 @@ if (Setup.isInstalled()) {
 								<label for="dboverride"><fmt:message key="generic.text.setup.overridedb" /></label> </div>
 							<div class="col-75">
 								<select id="dboverride" name="dboverride">
-									<option value="overide"><fmt:message key="generic.text.setup.wipe" /></option>
-									<option value="upgrade"><fmt:message key="generic.text.setup.upgrade" /></option>
+									<option value="true"><fmt:message key="generic.text.setup.wipe" /></option>
 									<option value="false"><fmt:message key="generic.text.setup.dontwipe" /></option>
 								</select>
 							</div>

@@ -1,9 +1,9 @@
 body {
 	margin: 0;
 	padding: 0;
-	background: #FFFFFF url(images/grassTile.jpg) repeat-x top center;
+	background: #FFFFFF;
 	font-size: 13px;
-	color: #090212;
+	color: #2e3897;
 }
 
 body, th, td, input, textarea, select, option, p, div {
@@ -12,7 +12,7 @@ body, th, td, input, textarea, select, option, p, div {
 
 h1, h2, h3 {
 	font-weight: normal;
-	color: #0A000A;
+	color: #2e3897;
 }
 
 h1 {
@@ -26,7 +26,7 @@ h2 {
 }
 
 h2 a {
-	color: #0A000A;
+	color: #2e3897;
 }
 
 h3 {
@@ -38,12 +38,12 @@ p, ul, ol {
 }
 
 a {
-	color: #9B1AC8;
+	color: #2e3897;
 }
 
 a:hover {
 	text-decoration: none;
-	color: #E6B715;
+	color: #ced0ef;
 }
 
 #wrapper {
@@ -59,7 +59,7 @@ a:hover {
 
 #header h1, #header p {
 	margin: 0;
-	color: #A878EF;
+	color: 	#2e3897;
 }
 
 #header h1 {
@@ -71,7 +71,7 @@ a:hover {
 	margin-top: -10px;
 }
 #header a {
-	color: #A878EF;
+	color: 	#2e3897;
 	text-decoration:none;
 }
 
@@ -91,17 +91,17 @@ a:hover {
 	background: #FFFFFF;
 	border-style:ridge;
 	border-width:5px;
-	border-color:#E42217;
+	border-color:#2e3897;
 }
 
 .errorAlert {
-	background: #E42217;
+	background: #2e3897;
 	color:#FFFFFF;
 	padding-left = 10px;
 }
 
 .successAlert {
-	background: #7B55B4;
+	background: #2e3897;
 	color:#FFFFFF;
 	padding-left = 10px;
 }
@@ -109,7 +109,7 @@ a:hover {
 .title {
 	margin: 0;
 	padding-bottom: 5px;
-	border-bottom: 2px solid #A878EF;
+	border-bottom: 2px solid #FF0000;
 }
 
 #sidebar {
@@ -154,7 +154,7 @@ a:hover {
 #searchResults li { 
 	cursor: pointer; 
 	cursor: hand;
-	border-bottom: 1px solid #d4d4d4;
+	border-bottom: 1px solid #b0c4de;
     padding-left: 5px;
     padding-right: 5px;
     width: 90%;
@@ -188,11 +188,11 @@ a:hover {
 
 .menuButton {
 	display: block;
-	border-bottom: 3px solid #A878EF;
-	background: #D4D4D4;
+	border-bottom: 3px solid #FF0000;
+	background: #2e3897;
 	padding: 5px 5px;
 	border-radius: 5px;
-	color: black;
+	color: #FFFFFF;
 	font-size: 1.5em;
 	text-align: center;
 	text-decoration: none;
@@ -201,16 +201,16 @@ a:hover {
    }
    
 .menuButton:hover {
-   border-top-color: #CC99FF;
-   background: #BFBFBF;
+   border-top-color: #b0c4de;
+   background: #b0c4de;
    }
 .menuButton:active {
-   border-top-color: #8660BF;
-   background: #8660BF;
+   border-top-color: #2e3897;
+   background: #2e3897;
    }
    
    .scoreBar {
-	background-color: #965BED;
+	background-color: #b0c4de;
 	height: 30px;
 	position: relative;
 	font-size: 25px;
@@ -225,7 +225,7 @@ a:hover {
 }
 
 .scoreBar:hover {
-	background-color: #AC7DF2;
+	background-color: #2e3897;
 	height: 30px;
 	position: relative;
 	font-size: 25px;
@@ -233,10 +233,10 @@ a:hover {
 	padding-left: 5;
 	vertical-align: middle;
 	padding-top: 5;
-	border: white;
+	border: #b0c4de;
 	margin: 0 0 3px 0;
 	min-width: 240px;
-	color: white;
+	color: #b0c4de;
 }
 
 .scoreLine{
@@ -260,7 +260,7 @@ a:hover {
 
 .place{
 	display: inline; 
-	color: #000000;
+	color: #2e3897;
 	min-width:25px;
 }
 
@@ -269,7 +269,7 @@ a:hover {
 	float: right;
 	padding-right: 5px;
 	padding-top: 2px;
-	color: white;
+	color: #000000;
 }
 
 .medalContainer {
@@ -325,9 +325,9 @@ a:hover {
 .informationBox {
 	display: block; 
 	margin 0; 
-	border-color:#A878EF; 
+	border-color:#2e3897; 
 	border-style:dashed; 
-	background-color: #D4D4D4; 
+	background-color: ced0ef; 
 	padding-top:5px; 
 	padding-bottom:5px; 
 	padding-right:5px; 
@@ -339,9 +339,9 @@ a:hover {
 	float: right; 
 	margin 0; 
 	width: 685px;
-	border-color:#A878EF;
+	border-color:#2e3897;
 	border-style:dashed;
-	background-color: #D4D4D4;
+	background-color: ced0ef;
 	padding-top:5px;
 	padding-bottom:5px;
 	padding-right:5px;
@@ -356,7 +356,7 @@ a:hover {
 	background: white url("images/searchIcon.png") 8px 6px no-repeat;
 	border-width: 1px;
 	border-style: solid;
-	border-color: #BFBFBF #BFBFBF #BFBFBF;
+	border-color: #b0c4de #b0c4de #b0c4de;
 	border-radius: 13px;
 	margin-top: 2px;
 	-webkit-box-sizing: border-box;
@@ -364,11 +364,11 @@ a:hover {
 	-ms-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	box-sizing: border-box;
-	-webkit-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
-	-moz-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
-	-ms-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
-	-o-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
-	box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+	-webkit-box-shadow: inset 0 1px #b0c4de, 0 1px 0 #fcfcfc;
+	-moz-box-shadow: inset 0 1px #b0c4de, 0 1px 0 #fcfcfc;
+	-ms-box-shadow: inset 0 1px #b0c4de, 0 1px 0 #fcfcfc;
+	-o-box-shadow: inset 0 1px #b0c4de, 0 1px 0 #fcfcfc;
+	box-shadow: inset 0 1px #b0c4de, 0 1px 0 #fcfcfc;
 }
 
 .resultbox{
@@ -449,8 +449,8 @@ a:hover {
 }
 
 .setupPage input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #b0c4de;
+  color: #2e3897;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
@@ -463,7 +463,7 @@ a:hover {
 
 .setupPage .container {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #b0c4de;
   padding: 20px;
 }
 

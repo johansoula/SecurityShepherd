@@ -4,20 +4,20 @@
 	ShepherdLogManager.logEvent(request.getRemoteAddr(), request.getHeader("X-Forwarded-For"), "DEBUG: scoreboard.jsp *************************");
 
 /**
- * This file is part of the Security Shepherd Project.
+ * This file is part of the Security Training Project.
  * 
- * The Security Shepherd project is free software: you can redistribute it and/or modify
+ * The Security Training project is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.<br/>
  * 
- * The Security Shepherd project is distributed in the hope that it will be useful,
+ * The Security Training project is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.<br/>
  * 
  * You should have received a copy of the GNU General Public License
- * along with the Security Shepherd project.  If not, see <http://www.gnu.org/licenses/>. 
+ * along with the Security Training project.  If not, see <http://www.gnu.org/licenses/>. 
  * 
  * @author Mark Denihan
  */
@@ -48,7 +48,7 @@
 		%>
 		<html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
-		<title>OWASP Security Shepherd - Scoreboard</title>
+		<title>Security Training</title>
 		
 		<link href="css/theCss.css" rel="stylesheet" type="text/css" media="screen" />
 		<link rel="shortcut icon" href="css/images/flavicon.jpg" type="image/jpeg" />
@@ -60,7 +60,7 @@
 		<!-- start header -->
 		<div id="header">
 			<h1>Scoreboard</h1>
-			<p>The OWASP Security Shepherd Project</p>
+			<p>Security Training</p>
 		</div>
 		<!-- end header -->
 		<!-- start page -->

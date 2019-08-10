@@ -5,20 +5,20 @@
 	ShepherdLogManager.logEvent(request.getRemoteAddr(), request.getHeader("X-Forwarded-For"), "DEBUG: index.jsp *************************");
 	Locale lang = new Locale(Validate.validateLanguage(request.getSession()));
 /**
- * This file is part of the Security Shepherd Project.
+ * This file is part of the Security Training Project.
  * 
- * The Security Shepherd project is free software: you can redistribute it and/or modify
+ * The Security Training project is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.<br/>
  * 
- * The Security Shepherd project is distributed in the hope that it will be useful,
+ * The Security Training project is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.<br/>
  * 
  * You should have received a copy of the GNU General Public License
- * along with the Security Shepherd project.  If not, see <http://www.gnu.org/licenses/>. 
+ * along with the Security Training project.  If not, see <http://www.gnu.org/licenses/>. 
  * 
  * @author Mark Denihan
  */
@@ -59,7 +59,7 @@ if (request.getSession() != null)
 		<html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>OWASP Security Shepherd</title>
+		<title>Security Training</title>
 
 		<!-- 
 			<fmt:message key="generic.text.commentMessage.1" /> 
@@ -83,7 +83,7 @@ if (request.getSession() != null)
 		<div id="wrapper">
 		<jsp:include page="translation-select.jsp" />
 		<div id="header">
-			<h1>Security Shepherd</h1>
+			<h1>Security<br>Training</h1>
 			<div style="position: absolute; top: 12px; right: 130px;">
 				<p>
 					<strong><%= userName %>&nbsp;&#x7c;&nbsp;<a href="logout?csrfToken=<%= csrfToken %>"><fmt:message key="generic.text.logout" /></a></strong>
@@ -761,36 +761,14 @@ if (request.getSession() != null)
 						});
 						if(ajaxCall.status == 200) {
 							theActualFile = ajaxCall.responseText;
-							$('#contentDiv').html("<iframe frameborder='no' class='levelIframe' id='theLesson' src='" + theActualFile + "'></iframe>");
+							$('#contentDiv').html("<iframe frameborder='no' class='levelIframe' id='theLesson' src='" + theActualFile + "'></iframe>");			
 							$("#theLesson").load(function(){
-								<% if(showCheatSheet) { %>
-									$("#submitResult").slideDown("fast", function(){
-										$("#cheatSheetButton").slideDown("fast", function(){
-											$("#contentDiv").slideDown("slow", function(){
-												var scrollTo = $("#moduleResult").offset().top;
-												scrollTo = scrollTo - 60;
-												console.log("Scroll Up to: " + scrollTo);
-												$('html, body').animate({
-													scrollTop: scrollTo
-												}, 1000);
-											});
-										});
-									});
-									<% } else { %>
-									$("#submitResult").slideDown("fast", function(){
-										$("#contentDiv").slideDown("slow", function(){
-											var scrollTo = $("#moduleResult").offset().top;
-											scrollTo = scrollTo - 60;
-											console.log("Scroll Up to: " + scrollTo);
-											$('html, body').animate({
-												scrollTop: scrollTo
-											}, 1000);
-										});
-									});
-								<% } %>
+								$("#submitResult").slideDown("fast", function(){
+									$("#contentDiv").slideDown("slow");
+								});
 							}).appendTo('#contentDiv');
-						} else {
-							$('#contentDiv').html("<p> " + theErrorMessage + ": " + ajaxCall.status + " " + ajaxCall.statusText + "</p>");
+						} else {			
+							$('#contentDiv').html("<p> " + theErrorMessage + ": " + ajaxCall.status + " " + ajaxCall.statusText + "</p>");			
 							$("#contentDiv").slideDown("slow");
 						}
 					});
