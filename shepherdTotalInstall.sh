@@ -91,7 +91,6 @@ else
         mongo manualPack/mongoSchema.js
 fi
 
-echo "MySQL pass: CowSaysMoo"
-echo "Installation token: "
-cat /var/lib/tomcat8//conf/SecurityShepherd.auth
+echo "MySQL: localhost:3306 user: root pass: CowSaysMoo"
+echo "Retrieve installation token:  sudo cat /var/lib/tomcat8//conf/SecurityShepherd.auth"
 echo
