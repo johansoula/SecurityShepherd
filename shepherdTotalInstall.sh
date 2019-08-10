@@ -17,6 +17,7 @@ else
 	sudo apt update -y
 	sudo apt install -y debconf-utils software-properties-common
 	echo "oracle-java12-installer shared/accepted-oracle-license-v1-2 select true" | sudo debconf-set-selections
+	echo "oracle-java12-installer shared/accepted-oracle-license-v1-2 seen true" | sudo debconf-set-selections
 	sudo apt upgrade -y
 	sudo add-apt-repository ppa:linuxuprising/java -y
 	sudo apt update -y
