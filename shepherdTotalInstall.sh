@@ -73,6 +73,8 @@ else
 	sudo dos2unix manualPack/*.js
 	sudo chmod 775 manualPack/*.war
 	mv manualPack/ROOT.war /var/lib/tomcat8/webapps/
+	rmdir --ignore-fail-on-non-empty /usr/share/tomcat8/webapps
+	ln -s /var/lib/tomcat8/webapps  /usr/share/tomcat8/webapps
 	sudo rm -rf /var/lib/tomcat8/webapps/ROOT
 	sudo ln -s /etc/tomcat8 /usr/share/tomcat8/conf
 	sudo chown -R tomcat8:tomcat8  /usr/share/tomcat8/ /var/lib/tomcat8/webapps
