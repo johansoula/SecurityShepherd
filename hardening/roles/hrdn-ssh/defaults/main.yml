@@ -2,7 +2,7 @@
 protocol: 2
 use_priv_escalation: "SANDBOX"
 banner_file: "/etc/issue_ssh.net"
-max_auth_tries: 3
+max_auth_tries: 2
 server_key_bits: 4096
 use_dns: "no"
 print_motd: "yes"

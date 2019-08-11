@@ -13,4 +13,11 @@
   - hrdn-ssh 
   - hrdn-filerights
   - hrdn-firewall
+  - hrdn-boot
+    #- hrdn-aide
+  - hrdn-etckeeper
+  - hrdn-audit
+  - hrdn-sysstat
+  - hrdn-login
+  - hrdn-postfix
   - system-reboot

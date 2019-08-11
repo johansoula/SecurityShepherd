@@ -31,4 +31,8 @@ base_packages:
           - libpam-tmpdir
           - debian-goodies
           - apt-listchanges
-          - autolog 
+          - autolog
+          - apt-show-versions 
+
+services_to_enable:
+        - arpwatch

@@ -1,0 +1,21 @@
+---
+
+- name: Allow boot without password on grub
+  replace:
+    dest: /etc/grub.d/10_linux
+    regexp: '^CLASS="(--class gnu-linux --class gnu --class os)"$'
+    replace: 'CLASS="\1 --unrestricted"'
+
+- name: Add password to grub
+  lineinfile:
+    dest: /etc/grub.d/40_custom
+    state: present
+    line: '{{ item }}'
+  with_items:
+  - '### ansible begin ###'
+  - 'set superusers="appsec"'
+  - 'password_pbkdf2 appsec grub.pbkdf2.sha512.10000.125360B113379C5E933A6ACF59BA6FE8033168D0E00FE8151E0703A2EEE13B5C9D6DB7FAEE2543A2E2E815836D4BF3B66CEE634C765D91709666381B01E68D5B.DFBAF7DBDD6735CE56E34840AFEA96E3C9A27E54E19CD9DAE20A8C01684A2B331B579009AFA9BD16D0D6CB8B5C1A40911A0FB3C82FA10EA8DF898AA04BC6F68E'
+  - '### ansible end ###'
+
+- name: Update grub command
+  command: update-grub

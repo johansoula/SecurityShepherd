@@ -7,9 +7,8 @@ The [OWASP Security Shepherd Project](http://bit.ly/owaspSecurityShepherd) is a 
 This fork was made to update the scripted setup to work automagically on Ubuntu 18.04 LTS .
 
 Next steps:
-- Fine tune CSS layout and logos
-- OS hardening
-- Ansible to have the same installation than the script shell installation but more "idem potent"
+- Fine tune CSS layout and logos (DONE with a red and blue skin, no compilation, patching files)
+- OS hardening (basic hardening for azure image DONE)
 
 ### Manual Setup
 

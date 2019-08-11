@@ -15,14 +15,6 @@
   with_dict: "{{ redhat_kernel_parameters }}"
   when: ansible_os_family  == "CentOS" or ansible_os_family == "RedHat"
 
-- name: Enforce sysctl hardening 
-  sysctl:
-    name: "{{ item.key }}"
-    value: "{{ item.value }}"
-    state: present
-  with_dict: "{{ ufw_kernel_parameters }}"
-  when: ansible_os_family == "Ubuntu"
-
 - name: Handle ufw (firewall) sysctl config (Ubuntu)
   lineinfile:
     dest: /etc/ufw/sysctl.conf
@@ -33,4 +25,4 @@
   - { key: 'net/ipv4/conf/all/log_martians', value: '1' }
   - { key: 'net/ipv4/conf/all/accept_redirects', value: '0' }
   - { key: 'net/ipv4/tcp_syncookies', value: '1' }
-  when: ansible_os_family == "Ubuntu"
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

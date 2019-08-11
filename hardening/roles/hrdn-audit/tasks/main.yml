@@ -1,0 +1,24 @@
+---
+
+- name: Install auditd
+  apt:
+    name: auditd
+    state: latest
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Copy stig rules to auditd rules directory
+  copy:
+    src: audit.rules
+    dest: /etc/audit/rules.d/audit.rules
+    owner: root
+    group: root
+
+- name: Compile rules
+  command: augenrules
+
+- name: Enable Auditd on boot
+  service:
+    name: auditd
+    state: started
+    enabled: yes
+

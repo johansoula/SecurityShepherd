@@ -50,7 +50,6 @@
     enabled: yes
   with_items:
     - '{{ services_to_enable}}'
-  when: ansible_os_family  == "CentOS" or ansible_os_family == "RedHat"
 
 - name: Unable unattended upgrades (security)
   copy:
@@ -59,3 +58,12 @@
     owner: root
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
+
+- name: Create a symbolic link
+  file:
+          src: /etc/fail2ban/jail.conf
+          dest: /etc/fail2ban/jail.local
+          owner: root
+          group: root
+          state: file
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

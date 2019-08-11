@@ -1,0 +1,14 @@
+---
+
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: install etckeeper
+  package:
+    name: etckeeper
+    state: latest
+
+- name: init etckeeper
+  command: etckeeper init
+
+

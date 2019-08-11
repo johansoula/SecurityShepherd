@@ -1,0 +1,24 @@
+---
+# enable sysstat
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Ensure sysstat is installed
+  package:
+    name: sysstat 
+    state: latest
+
+- name: Enable sysstat for Ubuntu LTS  
+  lineinfile:
+    dest: /etc/default/sysstat
+    regexp: "ENABLED=\"false\""
+    line: "ENABLED=\"true\""
+    state: present
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Enable sysstat for CentOS/RedHat
+  service:
+    name: sysstat
+    state: started
+    enabled: yes
+  when: ansible_os_family  == "CentOS" or ansible_os_family == "RedHat"

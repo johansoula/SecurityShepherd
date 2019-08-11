@@ -1,0 +1,3 @@
+---
+haveged_pkg: 'haveged'
+haveged_service: 'haveged'

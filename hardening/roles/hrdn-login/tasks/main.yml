@@ -1,0 +1,11 @@
+---
+- name: Tune password age
+  replace:
+    dest: /etc/login.defs
+    regexp: '^({{ item.key }})\s+\d+'
+    replace: '\1\t{{ item.value }}'
+  with_items:
+  - { key: 'PASS_MAX_DAYS', value: '1460' }
+  - { key: 'PASS_WARN_AGE', value: '365' }
+  - { key: 'PASS_MIN_DAYS', value: '10' }
+

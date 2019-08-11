@@ -1,0 +1,12 @@
+---
+
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: install aide
+  package:
+    name: aide
+    state: latest
+
+- name: init aide
+  command: aideinit -f
