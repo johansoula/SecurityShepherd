@@ -1,0 +1,41 @@
+---
+
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Enforce 700 on /root
+  file:
+    path: /root
+    mode: 0700
+
+- name: Enforce 000 on compilers
+  file:
+    path: '{{ item }}'
+    mode: 0000
+    follow: yes
+  with_items:
+  - /usr/bin/as
+#  - /usr/bin/gcc
+#  - /usr/bin/g++
+
+- name: Change umask in profile files 
+  lineinfile:
+    dest: '{{ item }}'
+    regexp: "umask 0[02][237]"
+    line: "umask 027"
+    state: present
+  with_items:
+  - /etc/profile
+  - /etc/bash.bashrc
+
+- name: Change umask in /etc/login.defs
+  lineinfile:
+    dest: /etc/login.defs
+    regexp: "UMASK\\s+0[027][237]"
+    line: "UMASK\t\t027"
+    state: present
+
+
+
+
+

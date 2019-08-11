@@ -1,0 +1,34 @@
+services_running:
+        - ssh
+
+base_packages:
+          - aide
+          - arpwatch
+          - acct
+          - tcpd
+          - screen
+          - ntp
+          - htop
+          - lsof
+          - strace
+          - vim
+          - less
+          - rsync
+          - rkhunter
+          - logwatch
+          - etckeeper
+          - man-db
+          - fail2ban
+          - sysstat
+          - lynis
+          - mlocate
+          - vlock
+          - usbguard
+          - debsums
+          - libpam-cracklib
+          - debsecan
+          - needrestart
+          - libpam-tmpdir
+          - debian-goodies
+          - apt-listchanges
+          - autolog 

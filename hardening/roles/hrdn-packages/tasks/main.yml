@@ -1,0 +1,61 @@
+---
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install yum-utils and yum-security (CentOS)
+  yum:
+    name:  ['yum-utils', 'yum-plugin-security', 'epel-release']
+    state: latest
+  when: ansible_os_family == "RedHat" or ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: upgrade all packages (CentOS)
+  yum:
+    name: '*'
+    state: latest
+  when: ansible_os_family == "RedHat" or ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: Run the equivalent of "apt-get update" as a separate step
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install aptitude (Ubuntu)
+  apt:
+    name: aptitude
+    state: latest
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: install apt transport https (Ubuntu)
+  package:
+    name: apt-transport-https
+    state: latest
+  when: ansible_os_family  == "Debian" or ansible_os_family == "Ubuntu"
+
+- name:  upgrade all packages (Ubuntu)
+  apt: upgrade=full
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install required base packages
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - '{{ base_packages }}'
+
+- name: Enable service on boot
+  service:
+    name: '{{ item }}'
+    state: started
+    enabled: yes
+  with_items:
+    - '{{ services_to_enable}}'
+  when: ansible_os_family  == "CentOS" or ansible_os_family == "RedHat"
+
+- name: Unable unattended upgrades (security)
+  copy:
+    src: 20auto-upgrades
+    dest: /etc/apt/apt.conf.d/20auto-upgrades
+    owner: root
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+

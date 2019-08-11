@@ -1,0 +1,32 @@
+---
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+  ignore_errors: yes
+
+- name: Install aptitude (Ubuntu)
+  package:
+          name: aptitude
+          state: latest
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: install apt transport https (Ubuntu)
+  package:
+          name: apt-transport-https
+          state: latest
+  when: ansible_os_family  == "Debian" or ansible_os_family == "Ubuntu"
+
+- name: Run the equivalent of "apt-get update" as a separate step
+  apt: update_cache=yes
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Run an equivalent of "yum check-update" 
+  yum: update_cache=yes
+  when: ansible_os_family == "RedHat" or ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- name: Install security updates (Ubuntu)
+  shell: apt-get upgrade -oDir::Etc::SourceList=/etc/apt/security.sources.list --force-yes -y
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Install security updates (CentOS)
+  shell: yum --security update-minimal -y
+  when: ansible_os_family == "RedHat" or ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'

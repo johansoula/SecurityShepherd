@@ -1,0 +1,16 @@
+---
+- name: Hardening of Ubuntu 18.04
+  hosts: server
+  remote_user: "{{remote_user}}"
+  become: yes
+  become_method: sudo
+  serial: 1
+  roles: 
+  - hrdn-patching
+  - hrdn-packages
+  - hrdn-sysctl
+  - hrdn-crypto
+  - hrdn-ssh 
+  - hrdn-filerights
+  - hrdn-firewall
+  - system-reboot

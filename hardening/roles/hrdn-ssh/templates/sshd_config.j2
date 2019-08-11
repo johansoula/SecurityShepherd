@@ -1,0 +1,33 @@
+# Configuration file for sshd <3 <3
+Protocol {{ protocol }}
+Banner {{ banner_file }}
+UseDNS {{ use_dns }}
+MaxAuthTries  {{ max_auth_tries }}
+PrintMotd {{ print_motd }}
+PrintLastLog {{ print_lastlog }}
+TCPKeepAlive {{ tcp_keepalive }}
+PermitRootLogin {{ permit_root_login }}
+PubkeyAuthentication {{ pubkey_authent }}
+IgnoreRhosts {{ ignore_rhosts }}
+HostbasedAuthentication {{ hostbased_auth }} 
+PermitEmptyPasswords {{ permit_user_env }}
+PermitUserEnvironment {{ permit_user_env }}
+StrictModes {{ strict_mode }}
+LogLevel {{ log_level }}
+LoginGraceTime {{ login_grace_time }}
+UsePAM {{ use_pam }}
+AllowAgentForwarding {{ agent_forwarding }}
+X11Forwarding {{ x11_forwarding }}
+MaxSessions {{ max_sessions }}
+Compression {{ compression }}
+#AllowGroups {{ ssh_user_group }}
+ClientAliveInterval 300
+ClientAliveCountMax 2
+AllowTcpForwarding {{ allow_tcp_forwarding }}
+Ciphers {{ sshd_ciphers }}
+KexAlgorithms {{ kex_algo }}
+MACS {{ sshd_macs }}
+AuthorizedKeysFile {{ authorized_keys }}
+ChallengeResponseAuthentication no
+Subsystem sftp internal-sftp
+

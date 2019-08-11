@@ -1,0 +1,34 @@
+---
+protocol: 2
+use_priv_escalation: "SANDBOX"
+banner_file: "/etc/issue_ssh.net"
+max_auth_tries: 3
+server_key_bits: 4096
+use_dns: "no"
+print_motd: "yes"
+print_lastlog: "yes"
+tcp_keepalive: "no"
+permit_root_login: "no"
+hostbased_auth: "no"
+permit_empty_password: "no"
+permit_user_env: "no"
+strict_mode: "yes"
+ignore_rhosts: "yes"
+pubkey_authent: "yes"
+log_level: "VERBOSE"
+use_pam: "yes"
+use_login: "no"
+login_grace_time: 120
+agent_forwarding: "no"
+x11_forwarding: "no"
+max_sessions: 2
+verify_reverse_mapping: "no"
+allow_tcp_forwarding: "no"
+compression: "no"
+ssh_user_group: "sshusr"
+sshd_ciphers: "aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr"
+kex_algo: "curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256"
+sshd_macs: "hmac-sha2-512,hmac-sha2-256,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com"
+authorized_keys: ".ssh/authorized_keys"
+
+sshd_config_template: "sshd_config"

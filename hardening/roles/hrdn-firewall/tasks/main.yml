@@ -1,0 +1,29 @@
+---
+# deploy ufw for ubuntu
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Ensure ufw is installed
+  package:
+    name: ufw
+    state: latest
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu' 
+
+- name: Setup admin rules
+  ufw:
+          rule: allow
+          port: 22
+          proto: tcp
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Setup services rules
+  ufw:
+          rule: allow
+          port: 80,443
+          proto: tcp
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- name: Enable ufw
+  ufw:
+    state: enabled
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

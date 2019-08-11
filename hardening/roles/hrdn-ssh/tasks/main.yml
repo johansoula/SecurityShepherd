@@ -1,0 +1,36 @@
+---
+# deploy sshd config
+
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Copy login warning banner
+  copy:
+    src: issue_ssh.net
+    dest: '{{ item }}'
+    owner: root
+    group: root
+  with_items:
+  - /etc/issue.net
+  - /etc/issue
+  - /etc/issue_ssh.net
+
+- name: Create ssh users group
+  group:
+    name: "{{ ssh_user_group }}"
+    state: present
+
+- name: Force disabled root account
+  command: passwd -l root
+
+- name: Deploying sshd Configuration
+  template:
+    src: "{{ sshd_config_template }}.j2"
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0600
+    validate: '/usr/sbin/sshd -t -f %s'
+  notify: reload ssh after hardening
+
+

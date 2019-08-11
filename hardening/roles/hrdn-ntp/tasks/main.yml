@@ -1,0 +1,48 @@
+---
+# Configure network time protocol
+
+- name: Add the OS specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install ntp packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - ntp
+    - ntpdate
+    - lockfile-progs
+
+- name: Configure ntp (/etc/ntp.conf)
+  template:
+    src: etc_ntp.conf.j2
+    dest: /etc/ntp.conf
+
+- name: Set /etc/localtime
+  copy:
+    src: "/usr/share/zoneinfo/{{ timezone }}"
+    dest: /etc/localtime
+    remote_src: True
+
+- name: Set /etc/timezone
+  copy:
+    dest: /etc/timezone
+    content: "{{ timezone }}\n"
+  notify: Update tzdata
+  when: ansible_os_family == "Debian"
+
+- name: Stop ntp
+  service:
+    name: '{{ ntp_daemon }}'
+    state: stopped
+
+- name: Ntpdate
+  command: "ntpdate {{ ntp_servers.0.split()[0] }}"
+  args:
+    warn: False
+
+- name: Start ntp
+  service:
+    name: '{{ ntp_daemon }}'
+    enabled: yes
+    state: started

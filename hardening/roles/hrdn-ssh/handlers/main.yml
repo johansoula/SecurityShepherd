@@ -1,0 +1,7 @@
+---
+- name: Reload ssh
+  service:
+    name: "{{ sshd_service }}"
+    state: reloaded
+  listen: "reload ssh after hardening"
+
